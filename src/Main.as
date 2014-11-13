@@ -13,6 +13,7 @@ package
 		private var _Player1:Player;
 		private var _Player2:Player;
 		private var _ball:BallScript;
+		private var _background:BackgroundClip;
 		
 		public function Main():void 
 		{
@@ -22,6 +23,8 @@ package
 		
 		private function init(e:Event = null):void 
 		{
+			_background = new BackgroundClip();
+			addChild(_background);
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			// entry point
 			_Player1 = new Player(Player1,87,83);

@@ -24,7 +24,6 @@ package
 			_moveDown = moveDown;
 			addChild(_asset);
 			addEventListener(Event.ADDED_TO_STAGE, init);
-			trace(height);
 		}
 		
 		private function init(e:Event):void 
