@@ -8,11 +8,11 @@ package
 	 */
 	public class BallScript extends MovieClip 
 	{
-		private var _baseSpeed:int = 5;
-		private var _velocityX:int = 5;
-		private var _velocityY:int = 5;
-		private var _oldX:int;
-		private var _oldY:int;
+		private var _baseSpeed:Number = 5;
+		private var _velocityX:Number = 5;
+		private var _velocityY:Number = 5;
+		private var _oldX:Number;
+		private var _oldY:Number;
 		private var _asset:Ball = new Ball();
 		
 		public function BallScript() 

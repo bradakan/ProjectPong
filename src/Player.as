@@ -14,7 +14,9 @@ package
 		private var _moveDown:Number;
 		private var _asset:MovieClip;
 		private var _moveDirection:String;
-		private var _velocity:int = 5;
+		private var _velocity:Number = 5;
+		private var _baseSpeed:Number = 5;
+		private var _stopAnim:Boolean = false;
 		public function Player(asset,moveUp,moveDown) 
 		{
 			super();
@@ -28,6 +30,7 @@ package
 		
 		private function init(e:Event):void 
 		{
+			_asset.gotoAndStop(1);
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDown);
 			stage.addEventListener(KeyboardEvent.KEY_UP, keyUp);
@@ -73,6 +76,43 @@ package
 				this.y += _velocity;
 			}
 			
+			if (_asset.currentFrame == _asset.framesLoaded)
+			{
+				if (_stopAnim == true)
+				{
+					_asset.gotoAndStop(1);
+					_stopAnim = false;
+				}
+				else
+				{
+					_stopAnim = true;
+				}
+			}
+		}
+		
+		public function get velocity():Number 
+		{
+			return _velocity;
+		}
+		
+		public function set velocity(value:Number):void 
+		{
+			_velocity = value;
+		}
+		
+		public function get asset():MovieClip 
+		{
+			return _asset;
+		}
+		
+		public function set asset(value:MovieClip):void 
+		{
+			_asset = value;
+		}
+		
+		public function get baseSpeed():Number 
+		{
+			return _baseSpeed;
 		}
 		
 		
